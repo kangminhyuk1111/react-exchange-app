@@ -14,8 +14,8 @@ function App() {
     moneyValue2: 0,
   });
   const [exchange, setExchange] = useState();
-  const [exKeys, setExKeys] = useState();
-  const [optionKeys, setOptionKeys] = useState();
+  const [exKeys, setExKeys] = useState([]);
+  const [optionKeys, setOptionKeys] = useState([]);
   const [exchangeValue, setExchangeValue] = useState(0);
 
   const exchangeBill = async () => { // 환율 api 정보 받아오기
@@ -34,7 +34,7 @@ function App() {
 
   const setKeysAndValues = async () => { // key와 value로 나눔
     setExKeys(Object.keys(exchange));
-    await setOptionKeys(exKeys.map(data => <option value={data}>{data}</option>));
+    await setOptionKeys(exKeys && exKeys.map((data,idx) => <option key={idx} value={data}>{data}</option>));
   }
 
   const exchangeMoneyValue = async (country, money, country2) => { // 환율정보를 가져와서 환율식에 대입
