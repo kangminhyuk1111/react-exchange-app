@@ -38,6 +38,7 @@ function App() {
   }
 
   const exchangeMoneyValue = async (country, money, country2) => { // 환율정보를 가져와서 환율식에 대입
+    // 환율 계산식 ===> 변환통화 / 기준통화 * 금액
     return setExchangeValue(((exchange[country2] / exchange[country]) * money).toFixed(4) + country2.toString());
   }
 
