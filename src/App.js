@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 
 function App() {
-  let defaultCountry = 'USD';
+  let defaultCountry = 'USD'; // default value
   const API_KEY = 'dcbd7ca5451d89ec329f7cbd';
   const [bill1, setBill1] = useState({
     selectCountry: '',
@@ -41,11 +41,11 @@ function App() {
     return setExchangeValue(((exchange[country2] / exchange[country]) * money).toFixed(4) + country2.toString());
   }
 
-  useEffect(() => {
+  useEffect(() => { // 랜더링시 API CALL
     exchangeBill()
   }, []);
 
-  useEffect(() => {
+  useEffect(() => { // 상태값 정의
     setKeysAndValues()
   }, [exchange])
 
